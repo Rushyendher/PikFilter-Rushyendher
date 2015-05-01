@@ -1,0 +1,100 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="PikFilter.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    shell:SystemTray.IsVisible="False">
+
+    <phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar Opacity="0.3"  IsMenuEnabled="True"  IsVisible="True" BackgroundColor="Gray">
+            <shell:ApplicationBarIconButton x:Name="mycamera" IconUri="/Images/feature.camera.png" Text="camera" Click="mycamera_Click"/>
+            <shell:ApplicationBarIconButton x:Name="roateimage" IconUri="/Images/rotate.png" Text="rotate" Click="roateimage_Click"/>
+            <shell:ApplicationBarIconButton x:Name="savebutton" IconUri="/Images/save.png" Text="save" Click="savebutton_Click"/>
+            <shell:ApplicationBarIconButton x:Name="addfilter" IconUri="/Images/add.png" Text="add filter" Click="addfilter_Click"/>
+            
+            <shell:ApplicationBar.MenuItems>
+                <shell:ApplicationBarMenuItem x:Name="albums" Text="albums" Click="albums_Click"/>
+                <shell:ApplicationBarMenuItem x:Name="autofiximg" Text="autofix" Click="autofiximg_Click" />
+                <shell:ApplicationBarMenuItem x:Name="croppic" Text="crop" Click="croppic_Click" />
+                <shell:ApplicationBarMenuItem Text="generate mask"/>
+                <shell:ApplicationBarMenuItem x:Name="filtersinfo" Text="Filters info" Click="filtersinfo_Click"/>
+            </shell:ApplicationBar.MenuItems>
+        </shell:ApplicationBar>
+    </phone:PhoneApplicationPage.ApplicationBar>
+
+    <phone:PhoneApplicationPage.Resources>
+        <Style TargetType="Image">
+            <Setter Property="Width" Value="160"></Setter>
+            <Setter Property="Height" Value="160"></Setter>
+        </Style>
+
+        <Style TargetType="Image" x:Key="img">
+            <Setter Property="Width" Value="480"></Setter>
+            <Setter Property="Height" Value="800"></Setter>
+        </Style>
+    </phone:PhoneApplicationPage.Resources>
+
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        
+        <StackPanel>
+            <Image x:Name="myimage" Style="{StaticResource img}"  Source="/Images/deafultpic.jpg"/>
+        </StackPanel>
+        <ScrollViewer HorizontalAlignment="Right"  Width="200" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
+            <StackPanel x:Name="allfilters" Orientation="Vertical" Background="Chocolate">
+                <StackPanel>
+                    <Image x:Name="img1" Tap="img1_Tap" Stretch="UniformToFill" Margin="0,30,0,0"/>
+                    <TextBlock Text=" Gaussian Noise" FontSize="24"/>
+                </StackPanel>
+                <StackPanel>
+                    <Image x:Name="img2" Tap="img2_Tap" Stretch="UniformToFill" Margin="0,30,0,0"/>
+                    <TextBlock Text=" Grayscale" FontSize="24"/>
+                </StackPanel>
+                <StackPanel>
+                    <Image x:Name="img3" Tap="img3_Tap" Stretch="UniformToFill" Margin="0,30,0,0"/>
+                    <TextBlock Text=" Greyscale negative" FontSize="24"/>
+                </StackPanel>
+                <StackPanel>
+                    <Image x:Name="img4" Tap="img4_Tap" Stretch="UniformToFill" Margin="0,30,0,0"/>
+                    <TextBlock Text=" Fog" FontSize="24"/>
+                </StackPanel>
+                <StackPanel>
+                    <Image x:Name="img5" Tap="img5_Tap" Stretch="UniformToFill" Margin="0,30,0,0"/>
+                    <TextBlock Text=" Cartoon" FontSize="24"/>
+                </StackPanel>
+                <StackPanel>
+                    <Image x:Name="img6" Tap="img6_Tap" Stretch="UniformToFill" Margin="0,30,0,0"/>
+                    <TextBlock Text=" Color boost" FontSize="24"/>
+                </StackPanel>
+                <StackPanel>
+                    <Image x:Name="img7" Tap="img7_Tap" Stretch="UniformToFill" Margin="0,30,0,0"/>
+                    <TextBlock Text=" Flip" FontSize="24"/>
+                </StackPanel>
+                <StackPanel>
+                    <Image x:Name="img8" Tap="img8_Tap" Stretch="UniformToFill" Margin="0,30,0,0"/>
+                    <TextBlock Text=" Mirror" FontSize="24"/>
+                </StackPanel>
+                <StackPanel>
+                    <Image x:Name="img9" Tap="img9_Tap" Stretch="UniformToFill" Margin="0,30,0,0"/>
+                    <TextBlock Text=" Noise" FontSize="24"/>
+                </StackPanel>
+                <StackPanel>
+                    <Image x:Name="img10" Tap="img10_Tap" Stretch="UniformToFill" Margin="0,30,0,0"/>
+                    <TextBlock Text=" Negative" FontSize="24"/>
+                </StackPanel>
+                <StackPanel>
+                    <Image x:Name="img11" Tap="img11_Tap" Stretch="UniformToFill" Margin="0,30,0,0"/>
+                    <TextBlock Text=" Sketch" FontSize="24"/>
+                </StackPanel>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+
+</phone:PhoneApplicationPage>
